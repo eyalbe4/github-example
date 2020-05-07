@@ -14,7 +14,9 @@ jobs:
         with:
           name: jfrog/jfrog-cli 
       - name: Build
-        run: ls -l 1>&2
+        run: |
+          echo "aaaaa" 
+          ls -l
       - name: Run JFrog CLI
         run: |
           # Collect environment variables for the build
