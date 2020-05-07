@@ -5,12 +5,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v1
         env:
           JF_ARTIFACTORY_SERVER: ${{ secrets.JF_RT_ECO }}
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          name: jfrog/jfrog-cli
+      - name: Build
+        run: ls -l
       - name: Run JFrog CLI
         run: |
           # Collect environment variables for the build
