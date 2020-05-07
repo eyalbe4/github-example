@@ -12,11 +12,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          name: jfrog/jfrog-cli 
+          repository: jfrog/jfrog-cli 
       - name: Build
         run: |
-          echo "aaaaa" 
-          ls -l
+          pwd
+          ls -l 
       - name: Run JFrog CLI
         run: |
           # Collect environment variables for the build
