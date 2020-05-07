@@ -4,6 +4,7 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: golang:1.14-alpine
     steps:
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v1
@@ -15,8 +16,7 @@ jobs:
           repository: jfrog/jfrog-cli 
       - name: Build
         run: |
-          pwd
-          ls -l 
+          go version
       - name: Run JFrog CLI
         run: |
           # Collect environment variables for the build
