@@ -4,7 +4,7 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: golang:1.14-alpine
+    container: mroussin/docker-golang-git
     steps:
       - name: Setup JFrog CLI
         uses: jfrog/setup-jfrog-cli@v1
