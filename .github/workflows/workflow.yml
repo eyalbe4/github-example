@@ -11,14 +11,15 @@ jobs:
         env:
           JF_ARTIFACTORY_SERVER: ${{ secrets.JF_RT_ECO }}
       - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          repository: jfrog/jfrog-cli 
+        run: git clone https://github.com/jfrog/jfrog-cli.git
       - name: Build
         run: |
           go version
       - name: Run JFrog CLI
         run: |
+          pwd
+          ls -l
+          cd jfrog-cli
           pwd
           ls -l
           # Collect environment variables for the build
