@@ -20,10 +20,8 @@ jobs:
           export CGO_ENABLED=0
           jfrog rt go build -o jfrog -ldflags '-w -extldflags "-static"' main.go
           # Get the version
-          fullVersion=$(./jfrog -v)
-          echo $version
-          version=${fullVersion[2]}
-          echo $version
+          version=$(./jfrog -v | cut -d " " -f 3)
+          echp $version
 
           # Add env vars
           jfrog rt bce
