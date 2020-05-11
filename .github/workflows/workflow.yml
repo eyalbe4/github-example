@@ -19,6 +19,7 @@ jobs:
           jfrog rt go-config --server-id-resolve eco --repo-resolve go
           export CGO_ENABLED=0
           jfrog rt go build -o jfrog -ldflags '-w -extldflags "-static"' main.go
+          ls -l
           # Get the version
           fullVersion=( $(./jfrog -v) )
           version=${fullVersion[2]}
