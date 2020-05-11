@@ -15,6 +15,7 @@ jobs:
       - name: Build
         run: |
           go version
+          git version
           # cd jfrog-cli
           # # Build the code
           # jfrog rt go-config --server-id-resolve eco --repo-resolve go
