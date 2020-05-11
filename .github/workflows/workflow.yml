@@ -23,7 +23,7 @@ jobs:
           echo "aaaaaaaaaaaaaa"
           version=$(./jfrog -v | cut -d " " -f 3)
           echo "bbbbbbbbbbbbbb"
-          echp $version
+          echo $version
 
           # Add env vars
           jfrog rt bce
