@@ -18,7 +18,7 @@ jobs:
           # Build the code
           jfrog rt go-config --server-id-resolve eco --repo-resolve go
           export CGO_ENABLED=0
-          jfrog rt go build -o jfrog -ldflags '-w -extldflags "-static"' main.go
+          jfrog rt go build -o jfrog -ldflags '-w -extldflags "-static"' main.go --module "JFrog CLI Example"
           # Get the version
           version=$(./jfrog -v | cut -d " " -f 3)
           echo Build JFrog CLI version $version
