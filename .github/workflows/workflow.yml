@@ -6,29 +6,27 @@ jobs:
     runs-on: ubuntu-latest
     container: amd64/golang:latest
     steps:
-      # - name: Setup JFrog CLI
-      #   uses: jfrog/setup-jfrog-cli@v1
-      #   env:
-      #     JF_ARTIFACTORY_SERVER: ${{ secrets.JF_RT_ECO }}
-      # - name: Checkout
-      #   run: git clone https://github.com/jfrog/jfrog-cli.git
+      - name: Setup JFrog CLI
+        uses: jfrog/setup-jfrog-cli@v1
+        env:
+          JF_ARTIFACTORY_SERVER: ${{ secrets.JF_RT_ECO }}
+      - name: Checkout
+        run: git clone https://github.com/jfrog/jfrog-cli.git
       - name: Build
         run: |
-          go version
-          git version
-          # cd jfrog-cli
-          # # Build the code
-          # jfrog rt go-config --server-id-resolve eco --repo-resolve go
-          # export CGO_ENABLED=0
-          # jfrog rt go build -o jfrog -ldflags '-w -extldflags "-static"' main.go
-          # # Get the version
-          # fullVersion=( $(./jfrog -v) )
-          # version=${fullVersion[2]}
-          # echo $version
+          cd jfrog-cli
+          # Build the code
+          jfrog rt go-config --server-id-resolve eco --repo-resolve go
+          export CGO_ENABLED=0
+          jfrog rt go build -o jfrog -ldflags '-w -extldflags "-static"' main.go
+          # Get the version
+          fullVersion=( $(./jfrog -v) )
+          version=${fullVersion[2]}
+          echo $version
 
-          # # Add env vars
-          # jfrog rt bce
-          # # Add git info
-          # jfrog rt bag
-          # # Publish build-info
-          # jfrog rt bp
+          # Add env vars
+          jfrog rt bce
+          # Add git info
+          jfrog rt bag
+          # Publish build-info
+          jfrog rt bp
