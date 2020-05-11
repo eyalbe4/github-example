@@ -16,14 +16,14 @@ jobs:
         run: |
           cd jfrog-cli
           # Build the code
-          git checkout dev
           jfrog rt go-config --server-id-resolve eco --repo-resolve go
           export CGO_ENABLED=0
           jfrog rt go build -o jfrog -ldflags '-w -extldflags "-static"' main.go
           # Get the version
           version=$(./jfrog -v | cut -d " " -f 3)
-          echo $version
-
+          echo Build JFrog CLI version $version
+          # Upload the jfrog-cli binary
+          jfrog rt u jfrog generic-local/jfrog-cli-releases/$version/
           # Add env vars
           jfrog rt bce
           # Add git info
