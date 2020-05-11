@@ -4,7 +4,7 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: winamd64/golang
+    container: amd64/golang:latest
     steps:
       # - name: Setup JFrog CLI
       #   uses: jfrog/setup-jfrog-cli@v1
