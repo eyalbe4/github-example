@@ -33,4 +33,4 @@ jobs:
           # Scan build with JFrog Xray
           jfrog rt bs --fail=false
           # Promote build to staging
-          jfrog rt bpr
+          jfrog rt bpr staging-local
