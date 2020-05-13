@@ -31,4 +31,4 @@ jobs:
           # Publish build-info
           jfrog rt bp
           # Scan build with JFrog Xray
-          jfrog rt bs
+          jfrog rt bs --fail=false
