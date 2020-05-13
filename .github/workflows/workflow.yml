@@ -30,3 +30,5 @@ jobs:
           jfrog rt bag
           # Publish build-info
           jfrog rt bp
+          # Scan build with JFrog Xray
+          jfrog rt bs
