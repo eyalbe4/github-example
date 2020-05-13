@@ -23,7 +23,7 @@ jobs:
           version=$(./jfrog -v | cut -d " " -f 3)
           echo Build JFrog CLI version $version
           # Upload the jfrog-cli binary
-          jfrog rt u jfrog generic-local/jfrog-cli-releases/$version/
+          jfrog rt u jfrog rc-local/jfrog-cli-releases/$version/
           # Add env vars
           jfrog rt bce
           # Add git info
@@ -32,3 +32,5 @@ jobs:
           jfrog rt bp
           # Scan build with JFrog Xray
           jfrog rt bs --fail=false
+          # Promote build to staging
+          jfrog rt bpr
